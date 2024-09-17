@@ -1,0 +1,13 @@
+# Ensure mod_rewrite is enabled
+RewriteEngine On
+
+# Hide .php extension for specific pages
+RewriteRule ^about/?$ about.php [L]
+RewriteRule ^contect-us/?$ contect-us.php [L]
+RewriteRule ^services/?$ services.php [L]
+
+# Redirect a blog post URL to a SEO-friendly URL based on a blog title
+RewriteRule ^blog/([^/]+)/?$ blog-detail.php?title=$1 [L,QSA]
+
+# Redirect a service URL to a SEO-friendly URL based on service name
+RewriteRule ^service/([^/]+)/?$ services-details.php?name=$1 [L,QSA]
